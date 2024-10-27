@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.build("nodejs-api:latest")
+                    docker.build("shamaanjum/nodejs-api:latest")
                 }
             }
         }
