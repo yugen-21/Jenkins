@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     // Run Docker in detached mode without `nohup
-                    bat 'docker run -d -p 3001:3000 nodejs-api:latest'
+                    bat 'docker run -d -p 3002:3000 nodejs-api:latest'
                 }
             }
         }
