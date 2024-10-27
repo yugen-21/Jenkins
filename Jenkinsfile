@@ -33,7 +33,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Run Docker in detached mode without `nohup`
+                    // Run Docker in detached mode without `nohup
                     bat 'docker run -d -p 3000:3000 nodejs-api:latest'
                 }
             }
