@@ -16,7 +16,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('shamaanjum', 'dockerhub-credentials-id') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials-id') {
                         docker.image("nodejs-api:latest").push()
                     }
                 }
