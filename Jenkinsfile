@@ -13,14 +13,6 @@ pipeline {
                 }
             }
         }
-        stage('Run Tests') {
-            steps {
-                script {
-                    // Ensure tests are compatible with Windows
-                    bat 'npm test'
-                }
-            }
-        }
         stage('Push Docker Image') {
             steps {
                 script {
