@@ -15,8 +15,10 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                // This should work across platforms, assuming tests are defined in package.json
-                sh 'npm test'
+                script {
+                    // Ensure tests are compatible with Windows
+                    bat 'npm test'
+                }
             }
         }
         stage('Push Docker Image') {
@@ -31,10 +33,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Use only `docker run` in detached mode instead of `nohup`
+                    // Run Docker in detached mode without `nohup`
                     bat 'docker run -d -p 3000:3000 nodejs-api:latest'
                 }
             }
         }
     }
 }
+
